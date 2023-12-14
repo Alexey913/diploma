@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block mini_title %}
+    <h1>{{ diploma }}</h1>
+{% endblock %}
+
+{% block content %}
+    <br>
+    <table>
+        <tr><td>
+        <table align="left" cellpadding="3">
+            <tr><td>
+                <h2>
+                    {{ title }}
+                </h2>
+            </td>
+        </tr>
+        </table>
+    </td></tr>
+            <tr>
+                <td>
+                    <a href="{% url 'add_diploma' user_id %}"> <h3>Добавить {{ title }}</h3> </a>
+                </td>
+            </tr>
+        </table>
+        <br>
+</div>
+{% endblock %}
+
+{% block information %}
+<div><h1>{{ diploma.name }}</h1></div>
+<div>
+    <table cellpadding="3">
+        {% for k, v in diploma_dict.items %}
+            <tr>
+                <td>
+                    <font size="4"><b>{{ k }}:</b></font>
+                </td>
+                <td>
+                    <font size="4">{{ v }}</font>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="2">
+                <font size="4"><b>
+                <br>
+                <h3><a href="{% url 'change_diploma' user_id diploma.pk %}">Изменить данные</a>
+                <br><br>
+                <a href="{% url 'del_diploma' user_id diploma.pk %}"> Удалить {{ diploma.name }} </a>
+                <br><br>
+                <a href="{% url 'add_diploma' user_id %}"> Добавить {{ title }} </a>
+                </b></font>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

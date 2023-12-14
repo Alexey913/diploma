@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block mini_title %}
+    <h1>{{ title }} {{ user_name }}</h1>
+{% endblock %}
+
+{% block content %}
+
+    <table>
+        <tr><td>
+        <table align="left" cellpadding="1">
+            {% for k, v in context.items %}
+                <tr>
+                    <td>
+                        <font size="4"><b>{{ k }}:</b></font>
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <font size="4">{{ v }}</font>
+                    </td>
+                </tr>
+        {% endfor %}</h3>
+        </table>
+        </td></tr>
+        <tr><td>
+        <div>
+            <br>
+            <h2><a href="{% url 'change_data' user_id %}"> Изменить личные данные </a></h2>
+            <br>
+            <h3>Заполнить данные из документов</h3>
+            <h3>Заполнить данные через Госуслуги</h3>
+        </div>
+        </td></tr>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block mini_title %}
+    <h1> Пользователь {{ user }}</h1>
+{% endblock %}
+
+{% block content %}
+    <table align="left" cellpadding="3">
+        <tr><td>
+        <h2>
+            {{ title }} {{ user }}
+        </h2>
+            <br>
+    </td>
+    </tr>
+    <tr>
+        <td>
+            <h2><a href="{% url view user_id %}"> Изменить данные документа</a></h2>
+            <h3>Заполнить данные из документов</h3>
+            <h3>Заполнить данные через Госуслуги</h3>
+        </td>
+    </tr>
+    </table>
+    
+{% endblock %}
+
+{% block information %}
+    <div>
+        <h3>Данные о документе</h3>
+        <table cellpadding="3">
+            {% for k, v in context.items %}
+            <tr>
+                <td>
+                    <font size="4"><b>{{ k }}:</b></font>
+                </td>
+                <td>
+                    <font size="4">{{ v }}</font>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="2">
+                <font size="4"><b>
+                    <br><br>
+                    <h2><a href="{% url view user_id %}"> Изменить {{ title }} </a></h2>
+                </b></font>
+            </td>
+        </tr>
+
+        </table>
+</div>
+
+{% endblock %}

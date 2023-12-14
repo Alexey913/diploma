@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block mini_title %}
+    <h1>{{ title }} пользователя {{ user }}</h1>
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <table align="left" cellpadding="3" valign="top">
+        <tr>
+            <td colspan="2">
+                <a href="{% url add_property user.pk %}"> <h2>Добавить {{ title }}</h2> </a>
+            </td>
+        </tr>
+        {% for pr in properties %}
+            <tr>
+                <td>
+                    <font size="5"><b>
+                        {{ pr.type_property }}:
+                    </b></font>
+                </td>
+                <td>
+                    <a href="{% url get_property user.pk pr.pk %}">
+                    <font size="5">
+                        {% if pr.area %} 
+                            &nbsp;площадь {{ pr.area }} кв.м. ({{ pr.cadastral_number }})
+                        {% else %}
+                            {{ pr.brand }}&nbsp;{{ pr.model }}&nbsp;{{ pr.registration_number }}
+                        {% endif %}
+                    </b></font>
+                </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

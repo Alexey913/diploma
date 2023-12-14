@@ -1,0 +1,28 @@
+{% extends 'user_app/base.html' %}
+{% block content %}
+    <div>
+    <form action="{% url 'registration' %}" method="post">
+        {% csrf_token %}
+        <table cellpadding="3">
+            {% for f in form %}
+                <tr>
+                    <td align="left" width="200">
+                        <label for="{{ f.id_for_label }}">{{f.label}}: </label>
+                    </td>
+                    <td> {{ f }} </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <font color="aa0100">{{ f.errors }}</font>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <input class="c-button" type="submit" value="Зарегистрироваться">
+    </form>
+</div>
+<br>
+<a href="{% url 'authorization' %}"> <h3> Войти в офис </h3></a>
+
+{% endblock %}

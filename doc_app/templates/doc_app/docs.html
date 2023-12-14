@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block mini_title %}
+    <h1>{{ title }} пользователя {{ user }}</h1>
+{% endblock %}
+
+{% block content %}
+
+
+<table>
+    <tr><td>
+    <table align="left" cellpadding="3">
+                    {% for item in documents %}
+                    <tr>
+                        <td>    
+                    <a href="{% url item.url_name user_id %}"><font size="5"><b>{{ item.title }}</b></font></a>
+                    <br><br>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </td></tr>
+    <tr><td>
+    <div>
+        <h3>Заполнить данные из документов</h3>
+        <h3>Заполнить данные через Госуслуги</h3>
+    </div>
+    </td></tr>
+</table>
+
+{% endblock %}

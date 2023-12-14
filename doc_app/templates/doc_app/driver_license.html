@@ -1,0 +1,49 @@
+{% extends 'doc_app/base_doc.html' %}
+
+{% block information %}
+<div>
+    <h2>Данные о документе</h2>
+    <table cellpadding="3">
+        {% for k, v in context.items %}
+            <tr>
+                <td>
+                    <font size="4"><b>{{ k }}:</b></font>
+                </td>
+                <td>
+                    <font size="4">{{ v }}</font>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+        {% if categories %}
+        <br>
+        <h3>Сведения об открытых категориях</h3>
+        <table cellpadding="3">
+            {% for cat in categories %}
+            <tr><td colspan="2">   
+                <h4> {{ cat.name }} </h4>
+            </td></tr>
+                {% for k, v in cat.items %}
+                <tr>
+                    <td>
+                        <font size="4"><b>{{ k }}:</b></font>
+                    </td>
+                    <td>
+                        <font size="4">{{ v }}</font>
+                    </td>
+                </tr>
+                <br>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        <tr>
+            <td colspan="2">
+                <font size="4"><b>
+                    <br><br>
+                    <h2><a href="{% url 'change_driver_license' user_id %}"> Изменить {{ title }} </a></h2>
+                </b></font>
+            </td>
+        </tr>
+        </table>
+</div>
+{% endblock %}

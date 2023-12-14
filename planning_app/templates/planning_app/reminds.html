@@ -1,0 +1,40 @@
+{% extends 'planning_app/base.html' %}
+{% block content %}
+
+<div><h2>{{ title }}</h2></div>
+    <br>
+    <table>
+        <tr><td>
+        <table align="left" cellpadding="3">
+            <tr><td>
+                <a href="{% url 'add_remind' user_id %}"><h2>Добавить событие</h2></a>
+            <br><br>    
+            </td>
+            </tr>
+                {% if reminds %}
+                    {% for remind in reminds %}
+                    <tr>
+                        <td>
+                        <a href="{% url 'show_remind' user_id remind.pk %}"><font size="4"><b>{{ remind.title }} | {{ remind.date }}</b></font></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td>
+                    <h4>{{ mes }}</h4>
+                    </td>
+                </tr>
+                {% endif %}
+            </table>
+        </td></tr>
+            <tr><td>
+                <div>
+                    <br>
+                    <h3>Заполнить данные из документов</h2>
+                    <h3>Заполнить данные через Госуслуги</h2>
+                </div>
+                </td></tr>
+        </table>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'contacts_app/base.html' %}
+{% block content %}
+
+
+    <div><h2>{{ title }}</h2></div>
+    <br>
+        <table cellpadding="3">
+            <tr>
+                <td>
+                {% if contacts %}
+                <font size="5"><b>
+                    {% for contact in contacts %}
+                        {% if contact.name and contact.surname %}
+                            <li><a href="{% url 'show_contact' user_id contact.pk %}">{{ contact.surname }}&nbsp;{{ contact.name }}</a></li>
+                        {% elif not contact.surname %}
+                            <li><a href="{% url 'show_contact' user_id contact.pk %}">{{ contact.name }}</a></li>
+                        {% else %}
+                            <li><a href="{% url 'show_contact' user_id contact.pk %}">{{ contact.surname }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </b></font>
+                {% else %}
+                    <div><h4> {{ mes }} </h4></div>
+                {% endif %}
+                </td>
+            </tr>
+        </table>
+</div>
+
+{% endblock %}
+
+
+{% block information %}
+
+        <table cellpadding="3">
+            <tr>
+                <td>
+                    <a href="{% url 'add_contact' user_id %}"> <h2>Добавить запись</h2> </a>
+                <br><br>
+                </td>
+            </tr>
+        </table>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'contacts_app/base.html' %}
+{% block content %}
+
+
+    <div><h2>
+        {{ title }}
+    </h2></div>
+    <div>
+    <form action="{% url 'add_contact' user_id %}" method="post">
+        {% csrf_token %}
+        <table cellpadding="3">
+        {% for f in form %}
+            {% if f.label != "Отчество" %}
+            <tr>
+                <td align="left">
+                    <label for="{{ f.id_for_label }}">{{f.label}}: </label>
+                </td>
+                <td> {{ f }} </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <font color="aa0100">{{ f.errors }}</font>
+                </td>
+            </tr>
+            {% else %}
+                <tr>
+                    <td align="left">
+                        <label for="{{ f.id_for_label }}">{{f.label}}: </label>
+                    </td>
+                    <td> {{ f }} </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <font color="aa0100">{{ f.errors }}</font>
+                    </td>
+                </tr>
+                {% for p in phone_form %}
+                    <tr>
+                        <td align="left">
+                            <label for="{{ p.id_for_label }}">{{p.label}}: </label>
+                        </td>
+                        <td> {{ p }} </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <font color="aa0100">{{ p.errors }}</font>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% for e in email_form %}
+                <tr>
+                    <td align="left">
+                        <label for="{{ e.id_for_label }}">{{e.label}}: </label>
+                    </td>
+                    <td> {{ e }} </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <font color="aa0100">{{ e.errors }}</font>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            <tr>
+                <td colspan="2" align="right">
+                    <font color="aa0100">{{ f.errors }}</font>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        <br>
+        <input class="c-button" type="submit" value="Сохранить данные">
+    </form>
+</div>
+
+{% endblock %}

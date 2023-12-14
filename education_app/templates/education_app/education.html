@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block mini_title %}
+    <h1>{{ title }} пользователя {{ user }}</h1>
+{% endblock %}
+
+{% block content %}
+
+<table>
+    <tr><td>
+    <table align="left" cellpadding="3">
+        {% for d in diplomas %}
+        <tr>
+            <td>
+                <a href="{% url 'get_diploma' user_id pr.pk %}"><font size="5"><b>{{ item.title }}</b></font></a>
+            <br><br>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</td></tr>
+<tr>
+    <td>
+        <a href="{% url 'add_diploma' user_id %}"> <h3>Добавить {{ title }}</h3> </a>
+    </td>
+</tr>
+</table>
+<br>
+</div>
+
+{% endblock %}

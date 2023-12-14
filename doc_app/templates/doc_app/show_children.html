@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block mini_title %}
+    <h1>{{ title }} пользователя {{ user }}</h1>
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <table cellpadding="3">
+            {% for child in childrens %}
+                <tr>
+                    <td>
+                        <a href="{% url 'change_children' user_id child.pk %}"> 
+                            <font size="5"><b>
+                            {% if child.surname %}
+                                {{ child.surname }} 
+                            {% endif %}
+                            {% if child.name %}
+                                {{ child.name }} 
+                            {% endif %}
+                        </b></font>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td>
+                    <a href="{% url 'add_children' user_id %}"> <h3></h3>Добавить данные о ребенке</h3></a>
+                </td>
+            </tr>
+        </table>
+</div>
+
+{% endblock %}

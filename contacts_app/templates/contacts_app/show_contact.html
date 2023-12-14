@@ -1,0 +1,85 @@
+{% extends 'contacts_app/base.html' %}
+{% block content %}
+
+
+    
+<div><h1>{{ title }}
+    {% for k, v in contact.items %}
+    {% if k == 'Фамилия' or 'Имя '%}
+    {{ v }}
+    {% endif %}
+    {% endfor %}
+</h1></div>
+
+    <div>
+        <table cellpadding="3">
+            {% for k, v in contact.items %}
+            <tr>
+                <td>
+                    <font size="5"><b>{{ k }}:</b></font>
+                </td>
+                <td>
+                    <font size="5">{{ v }}</font>
+                </td>
+            </tr>
+            {% endfor %}
+            {% if phones %}
+            <tr colspan="2"><td><font size="5"><b>Телефон:</b></font></td></tr>
+                {% for phone in phones %}
+                    <tr>
+                        <td align="left">
+                        <font size="5">
+                            <a href="{% url 'change_phone' user_id contact_id phone.pk %}"> {{ phone }} </a>
+                        </font>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% endif %}
+            {% if emails %}
+            <tr colspan="2"><td><font size="5"><b>E-mail:</b></font></td></tr>
+                {% for email in emails %}
+                    <tr>
+                        <td align="left">
+                        <font size="5">
+                            <a href="{% url 'change_email' user_id contact_id email.pk %}"> {{ email }} </a>
+                        </font>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% endif %}
+        </table>
+        <br>
+</div>
+
+{% endblock %}
+
+{% block information %}
+
+
+    <div><h2>Опции</h2></div>
+    <div>
+        <table cellpadding="3">
+            <tr>
+                <td>
+                    <a href="{% url 'change_contact' user_id contact_id %}"> <h2>Изменить контакт</h2> </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{% url 'add_phone' user_id contact_id %}"> <h2>Добавить номер телефона</h2></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{% url 'add_email' user_id contact_id %}"> <h2>Добавить e-mail</h2> </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{% url 'del_contact' user_id contact_id %}"> <h2>Удалить контакт</h2> </a>
+                </td>
+            </tr>
+        </table>
+</div>
+
+{% endblock %}
