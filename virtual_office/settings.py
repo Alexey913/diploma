@@ -116,7 +116,7 @@ WSGI_APPLICATION = 'virtual_office.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'al913$default',
+        'NAME': 'al913$virual_office',
         'USER': 'al913',
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
         'HOST': 'al913.mysql.pythonanywhere-services.com',
