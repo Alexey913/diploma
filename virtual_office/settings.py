@@ -188,7 +188,7 @@ LOGGING = {
         },
         'file': {
             'class': 'logging.FileHandler',
-            'filename': 'virtual_office_logger.log',
+            'filename': './virtual_office_logger.log',
             'encoding': 'utf-8',
             'formatter': 'verbose',
         },
