@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
 from pathlib import Path
 from django.contrib import messages
 
@@ -23,20 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-7c3(r-@+3g-nsd(!cly&46w#9!t&^nv&4--_gk%gzf=vd&@*!g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-SESSION_COOKIE_SECURE = True
-
-CSRF_COOKIE_SECURE = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0',
                  'localhost',
                  '192.168.0.108',
-                 '192.168.0.13',
-                 'al913.pythonanywhere.com',]
+                 '192.168.0.13']
 
 INTERNAL_IPS = ['127.0.0.1',]
 
@@ -106,26 +100,13 @@ WSGI_APPLICATION = 'virtual_office.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'al913$virual_office',
-        'USER': 'al913',
-        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-        'HOST': 'al913.mysql.pythonanywhere-services.com',
-        'OPTIONS': {
-            'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -162,7 +143,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -188,7 +168,7 @@ LOGGING = {
         },
         'file': {
             'class': 'logging.FileHandler',
-            'filename': './virtual_office_logger.log',
+            'filename': 'virtual_office_logger.log',
             'encoding': 'utf-8',
             'formatter': 'verbose',
         },
