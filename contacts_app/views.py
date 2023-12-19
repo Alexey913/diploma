@@ -123,7 +123,7 @@ def add_phone_or_email(request: HttpResponse, user_id: int,
     else:
         form = form_type()
     context = {'form': form,
-               'title': f'Контакт {contact_id}',
+               'title': f'Контакт {Contact.objects.filter(pk=contact_id).first()}',
                'user_id': user_id,
                'contact_id': contact_id,
                'view': view,
@@ -296,8 +296,8 @@ def search(request, user_id):
                 organization__icontains=contact, user_id=user_id).all()
             place_rsidense_search = Contact.objects.filter(
                 place_residense__icontains=contact, user_id=user_id).all()
-            contacts = list(chain(name_search, suname_search,
-                                     patronymic_search, organization_search, place_rsidense_search))
+            contacts = list(set(chain(name_search, suname_search,
+                                     patronymic_search, organization_search, place_rsidense_search)))
             mes = 'По Вашему запросу ничего не найдено'
             title_templ = f'Найдено по запросу {contact}:'
             return abstract_list_contacts(request, user_id, contacts, mes, title_templ)
