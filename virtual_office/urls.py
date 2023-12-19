@@ -21,7 +21,7 @@ from django.urls import path, include
 from abstract_app.views import pageNotFound
 
 urlpatterns = [
-    path('__debug__/', include("debug_toolbar.urls")),
+    # path('__debug__/', include("debug_toolbar.urls")),
     path('admin/', admin.site.urls),
     path('doc/', include('doc_app.urls')),
     path('', include('user_app.urls')),
