@@ -188,17 +188,17 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
-        'proprty_app': {
+        'property_app': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': False,
         },
-        'educatiob_app': {
+        'education_app': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': False,
         },
-        'reminds_app': {
+        'planning_app': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': False,
