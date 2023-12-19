@@ -47,7 +47,7 @@ class Passport(Document):
 
 
 class Inn(Document):
-    inn = models.IntegerField(verbose_name='ИНН')
+    inn = models.BigIntegerField(verbose_name='ИНН')
 
     class Meta:
         db_table = "doc_app_inn"
