@@ -8,4 +8,4 @@ admin.site.register(Data)
 
 
 class UserAdmin(admin.ModelAdmin):
-list_display = ['email', 'phone', 'hash_password']
+    list_display = ['email', 'phone', 'hash_password']
