@@ -123,7 +123,7 @@ def add_phone_or_email(request: HttpResponse, user_id: int,
     else:
         form = form_type()
     context = {'form': form,
-               'title': f'Контакт {contact_id}',
+               'title': f'Контакт {Contact.objects.filter(pk=contact_id).first()}',
                'user_id': user_id,
                'contact_id': contact_id,
                'view': view,
