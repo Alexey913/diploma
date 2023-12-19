@@ -8,7 +8,7 @@ class AbstractUser(models.Model):
         abstract = True
 
     email = models.EmailField(null=True, blank=True)
-    phone = models.IntegerField(null=True, blank=True)
+    phone = models.BigIntegerField(null=True, blank=True)
     hash_password = models.BinaryField()
     salt = models.BinaryField()
 
@@ -39,7 +39,7 @@ class CommonDocTemplate(models.Model):
         abstract = True
 
     series = models.CharField(max_length=10, null=True, verbose_name='Серия')
-    number = models.IntegerField(verbose_name='Номер')
+    number = models.BigIntegerField(verbose_name='Номер')
     date_registration = models.DateField(verbose_name='Дата выдачи')
 
 class DocTemplate(CommonDocTemplate):

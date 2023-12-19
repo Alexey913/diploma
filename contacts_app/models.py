@@ -3,7 +3,7 @@ from user_app.models import User
 
 
 class Phone(models.Model):
-    phone = models.IntegerField(blank=True, verbose_name='Номер телефона')
+    phone = models.BigIntegerField(blank=True, verbose_name='Номер телефона')
     contact = models.ForeignKey('Contact', on_delete=models.CASCADE)
 
     def __str__(self) -> str:

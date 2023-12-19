@@ -1,0 +1,110 @@
+INFO 2023-12-19 18:01:30,260 autoreload 8088 4832 Watching for file changes with StatReloader
+INFO 2023-12-19 18:01:55,347 basehttp 8088 5520 - Broken pipe from ('127.0.0.1', 55800)
+INFO 2023-12-19 18:01:55,347 basehttp 8088 1376 - Broken pipe from ('127.0.0.1', 55799)
+ERROR 2023-12-19 18:01:57,580 log 8088 2404 Internal Server Error: /reminds/show_remind/11/3530/
+Traceback (most recent call last):
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'djdt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\debug_toolbar\middleware.py", line 74, in __call__
+    rendered = toolbar.render_toolbar()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\debug_toolbar\toolbar.py", line 82, in render_toolbar
+    return render_to_string("debug_toolbar/base.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Alex\Python\diploming\final\venv\Lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'djdt' is not a registered namespace
+ERROR 2023-12-19 18:01:57,751 basehttp 8088 2404 "GET /reminds/show_remind/11/3530/ HTTP/1.1" 500 140282
+INFO 2023-12-19 18:02:00,391 basehttp 8088 14660 - Broken pipe from ('127.0.0.1', 55809)
+INFO 2023-12-19 18:02:00,391 basehttp 8088 4012 - Broken pipe from ('127.0.0.1', 55811)
+INFO 2023-12-19 18:02:10,000 autoreload 8088 4832 C:\Alex\Python\diploming\final\virtual_office\urls.py changed, reloading.
+INFO 2023-12-19 18:02:13,791 autoreload 10796 1876 Watching for file changes with StatReloader
+WARNING 2023-12-19 18:02:16,907 log 10796 7600 Not Found: /reminds/show_remind/11/3530/
+WARNING 2023-12-19 18:02:16,908 basehttp 10796 7600 "GET /reminds/show_remind/11/3530/ HTTP/1.1" 404 14481
+INFO 2023-12-19 18:02:20,378 basehttp 10796 5020 - Broken pipe from ('127.0.0.1', 55852)
+INFO 2023-12-19 18:02:20,383 basehttp 10796 7600 - Broken pipe from ('127.0.0.1', 55855)
+INFO 2023-12-19 18:02:20,383 basehttp 10796 12724 - Broken pipe from ('127.0.0.1', 55853)
+INFO 2023-12-19 18:02:27,606 basehttp 10796 13232 "GET / HTTP/1.1" 302 0
+INFO 2023-12-19 18:02:27,855 basehttp 10796 13232 "GET /data/11/ HTTP/1.1" 200 15655
+INFO 2023-12-19 18:02:32,462 basehttp 10796 13232 "GET /reminds/11/ HTTP/1.1" 200 18544
+INFO 2023-12-19 18:02:34,796 basehttp 10796 13232 "GET /contacts/11/ HTTP/1.1" 200 14984
+INFO 2023-12-19 18:02:35,429 basehttp 10796 12536 - Broken pipe from ('127.0.0.1', 55862)
+INFO 2023-12-19 18:02:35,441 basehttp 10796 13232 - Broken pipe from ('127.0.0.1', 55863)
+INFO 2023-12-19 18:02:35,441 basehttp 10796 2456 - Broken pipe from ('127.0.0.1', 55864)
+INFO 2023-12-19 18:02:39,305 basehttp 10796 14732 "GET /contacts/add_contact/11/ HTTP/1.1" 200 19859
+INFO 2023-12-19 18:02:45,428 basehttp 10796 14732 - Broken pipe from ('127.0.0.1', 55877)
+INFO 2023-12-19 18:02:45,433 basehttp 10796 10880 - Broken pipe from ('127.0.0.1', 55878)
+INFO 2023-12-19 18:02:50,710 views 10796 14068 Сохранение данных контакта России нннннн пользователя 11
+INFO 2023-12-19 18:02:50,799 basehttp 10796 14068 "POST /contacts/add_contact/11/ HTTP/1.1" 302 0
+INFO 2023-12-19 18:02:50,915 basehttp 10796 14068 "GET /contacts/11/ HTTP/1.1" 200 15568
+INFO 2023-12-19 18:02:55,442 basehttp 10796 10144 - Broken pipe from ('127.0.0.1', 55891)
+INFO 2023-12-19 18:02:55,442 basehttp 10796 11256 - Broken pipe from ('127.0.0.1', 55889)
+INFO 2023-12-19 18:02:55,442 basehttp 10796 14068 - Broken pipe from ('127.0.0.1', 55890)
+INFO 2023-12-19 18:02:58,209 basehttp 10796 3020 "GET /contacts/add_contact/11/ HTTP/1.1" 200 19859
+INFO 2023-12-19 18:03:05,470 basehttp 10796 3020 - Broken pipe from ('127.0.0.1', 55902)
+INFO 2023-12-19 18:03:05,474 basehttp 10796 3300 - Broken pipe from ('127.0.0.1', 55903)
+INFO 2023-12-19 18:03:09,055 views 10796 6540 Сохранение данных контакта gtnh gtnh пользователя 11
+INFO 2023-12-19 18:03:09,129 basehttp 10796 6540 "POST /contacts/add_contact/11/ HTTP/1.1" 302 0
+INFO 2023-12-19 18:03:09,230 basehttp 10796 6540 "GET /contacts/11/ HTTP/1.1" 200 15736
+INFO 2023-12-19 18:03:10,459 basehttp 10796 14432 - Broken pipe from ('127.0.0.1', 55912)
+INFO 2023-12-19 18:03:10,459 basehttp 10796 7220 - Broken pipe from ('127.0.0.1', 55914)
+INFO 2023-12-19 18:03:10,459 basehttp 10796 6540 - Broken pipe from ('127.0.0.1', 55913)
+INFO 2023-12-19 18:03:14,588 basehttp 10796 7424 "POST /contacts/search/11/ HTTP/1.1" 200 15186
+INFO 2023-12-19 18:03:20,459 basehttp 10796 12276 - Broken pipe from ('127.0.0.1', 55925)
+INFO 2023-12-19 18:03:20,464 basehttp 10796 7424 - Broken pipe from ('127.0.0.1', 55923)
+INFO 2023-12-19 18:03:20,464 basehttp 10796 6804 - Broken pipe from ('127.0.0.1', 55924)
+INFO 2023-12-19 18:03:42,577 autoreload 10796 1876 C:\Alex\Python\diploming\final\abstract_app\models.py changed, reloading.
+INFO 2023-12-19 18:03:53,822 autoreload 8068 13204 Watching for file changes with StatReloader
+INFO 2023-12-19 18:04:20,873 autoreload 8068 13204 C:\Alex\Python\diploming\final\contacts_app\models.py changed, reloading.
+INFO 2023-12-19 18:04:24,133 autoreload 12624 10936 Watching for file changes with StatReloader
+INFO 2023-12-19 18:04:49,987 autoreload 12624 10936 C:\Alex\Python\diploming\final\doc_app\models.py changed, reloading.
+INFO 2023-12-19 18:04:53,985 autoreload 2308 9348 Watching for file changes with StatReloader
+INFO 2023-12-19 18:05:25,104 autoreload 2308 9348 C:\Alex\Python\diploming\final\education_app\models.py changed, reloading.
+INFO 2023-12-19 18:05:27,456 autoreload 14456 976 Watching for file changes with StatReloader
+INFO 2023-12-19 18:05:46,513 autoreload 14456 976 C:\Alex\Python\diploming\final\planning_app\models.py changed, reloading.
+INFO 2023-12-19 18:05:50,902 autoreload 11324 1056 Watching for file changes with StatReloader

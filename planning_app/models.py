@@ -15,7 +15,7 @@ class Remind(models.Model):
                               verbose_name='Повтор', default='Никогда')
     description = models.TextField(null=True, blank=True, verbose_name='Описание события')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    repeat_id = models.IntegerField(null=True)
+    repeat_id = models.BigIntegerField(null=True)
 
 def __str__(self):
     return f'{self.name} {self.date}'

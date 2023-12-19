@@ -21,7 +21,7 @@ class Diploma(DiplomaTemplate):
                             default='Диплом',
                             choices=sorted(DIPLOMA_CATEGORIES),
                             verbose_name='Вид документа')
-    registration_number = models.IntegerField(null=True,
+    registration_number = models.BigIntegerField(null=True,
                                               blank=True,
                                               verbose_name='Регистрационный номер')
     name_institution = models.CharField(max_length=100,
