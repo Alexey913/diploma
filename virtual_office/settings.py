@@ -1,3 +1,9 @@
+
+
+
+
+# Настройки для локальной версии
+
 """
 Django settings for virtual_office project.
 
