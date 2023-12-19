@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ['0.0.0.0',
                  '192.168.0.13',
                  'al913.pythonanywhere.com',]
 
-INTERNAL_IPS = ['127.0.0.1',]
+# INTERNAL_IPS = ['127.0.0.1',]
 
 # Application definition
 
@@ -56,11 +56,11 @@ INSTALLED_APPS = [
     'education_app',
     'planning_app',
     'contacts_app',
-    'debug_toolbar',
+    # 'debug_toolbar',
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -116,7 +116,7 @@ WSGI_APPLICATION = 'virtual_office.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'al913$virual_office',
+        'NAME': 'al913$virtual_office',
         'USER': 'al913',
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
         'HOST': 'al913.mysql.pythonanywhere-services.com',
@@ -151,7 +151,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Etc/GMT-3'
 
 USE_I18N = True
 
@@ -195,7 +195,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handlers': ['console', 'file'],
             'level': 'INFO',
         },
         'user_app': {
@@ -208,17 +208,17 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
-        'proprty_app': {
+        'property_app': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': False,
         },
-        'educatiob_app': {
+        'education_app': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': False,
         },
-        'reminds_app': {
+        'planning_app': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': False,
