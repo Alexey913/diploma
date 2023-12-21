@@ -71,17 +71,13 @@
     </tr>
     <tr>
         <td align="center">
-            {{ date_dict.calendar|safe }}
+            <font size="4"><b>Текущее время: {{ date_dict.time }}</b></font>
         </td>
     </tr>
     <tr>
         <td align="center">
-            Сегодня: {{ date_dict.date }}
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            Текущее время: {{ date_dict.time }}
+            <font size="5"><b>{{ date_dict.day }}</b></font>
+            <font size="4">{{ date_dict.calendar|safe }}</b></font>
         </td>
     </tr>
 </table>
