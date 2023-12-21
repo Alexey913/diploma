@@ -10,7 +10,7 @@ import locale
 
 import logging
 
-import numpy as np 
+import numpy as np
 
 from calendar import HTMLCalendar
 from datetime import datetime
@@ -34,12 +34,12 @@ def show_calendar() -> dict:
     now_time = datetime.now()
     year = now_time.year
     month = now_time.month
-    date = now_time.strftime('%d, %B, %Y')
+    day = now_time.day
     time = now_time.strftime('%H:%M')
-    calendar = HTMLCalendar().formatmonth(year, month)
-    return {'calendar': calendar,
-            'date': date,
-            'time': time
+    calend = HTMLCalendar().formatmonth(year, month)
+    return {'calendar': calend,
+            'time': time,
+            'day': day,
             }
 
 
@@ -56,7 +56,7 @@ def get_reminds(request: HttpResponse, user_id: int,
 
 @check_authorization
 def reminds(request: HttpResponse, user_id: int) -> Callable:
-    today = datetime.today() 
+    today = datetime.today()
     reminds = Remind.objects.filter(user_id=user_id,
                                     date__year=today.year,
                                     date__month=today.month,
@@ -64,7 +64,7 @@ def reminds(request: HttpResponse, user_id: int) -> Callable:
     mes = 'На сегодня событый нет'
     title = 'События на сегодня'
     return get_reminds(request, user_id, reminds, mes, title)
-   
+
 
 @check_authorization
 def reminds_at_current_month(request: HttpResponse, user_id: int) -> Callable:
@@ -202,7 +202,7 @@ def del_remind(request: HttpResponse, user_id: int, remind_id: int) -> HttpRespo
         messages.error(request, "Данных не сущствует")
     finally:
         return redirect('reminds', user_id=user_id)
-    
+
 def inject_form(request) -> dict:
     return {"form_title":SearchRemindTitleForm(),
             "form_date":SearchRemindDateForm()}
